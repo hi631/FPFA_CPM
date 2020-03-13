@@ -1,0 +1,116 @@
+# Copyright (C) 1991-2007 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+
+
+# The default values for assignments are stored in the file
+#		countpro_assignment_defaults.qdf
+# If this file doesn't exist, and for assignments not listed, see file
+#		assignment_defaults.qdf
+
+# Altera recommends that you do not modify this file. This
+# file is updated automatically by the Quartus II software
+# and any changes you make may be lost or overwritten.
+
+
+set_global_assignment -name FAMILY "Cyclone II"
+set_global_assignment -name DEVICE EP2C5T144C8
+set_global_assignment -name TOP_LEVEL_ENTITY Microcomputer
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 7.2
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "20:28:17  JUNE 28, 2008"
+set_global_assignment -name LAST_QUARTUS_VERSION "13.0 SP1"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name USE_GENERATED_PHYSICAL_CONSTRAINTS OFF -section_id eda_palace
+
+set_location_assignment PIN_22 -to clk_50M
+set_location_assignment PIN_143 -to LED[3]
+set_location_assignment PIN_144 -to LED[2]
+set_location_assignment PIN_142 -to LED[1]
+set_location_assignment PIN_141 -to LED[0]
+set_location_assignment PIN_43 -to BTN[3]
+set_location_assignment PIN_42 -to BTN[2]
+set_location_assignment PIN_41 -to BTN[1]
+set_location_assignment PIN_40 -to BTN[0]
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to BTN[0]
+
+# 1:GND 2:CTS(i) 3:VCC 4:TXD(o) 5:RXD(i) 6:DTR(o) (For FTD1232)
+#set_location_assignment PIN_xx -to GND
+set_location_assignment PIN_63 -to rts1
+#set_location_assignment PIN_xx -to VCC
+set_location_assignment PIN_59 -to rxd1
+set_location_assignment PIN_58 -to txd1
+set_location_assignment PIN_57 -to cts1
+
+#SD.Pin 1:(DAT2) 2:CS 3:CMD 4:VDD 5:SCK 6:VSS 7:DAT0(+pu)
+set_location_assignment PIN_67 -to SD_CS
+set_location_assignment PIN_69 -to SD_CMD
+set_location_assignment PIN_70 -to SD_SCK
+set_location_assignment PIN_71 -to SD_DAT0
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to SD_DAT0
+
+# RAM 128KB AS6C1008
+set_location_assignment PIN_72 -to SRAMAD[16]
+set_location_assignment PIN_75 -to SRAMAD[15]
+set_location_assignment PIN_73 -to SRAMAD[14]
+set_location_assignment PIN_93 -to SRAMAD[13]
+set_location_assignment PIN_86 -to SRAMAD[12]
+set_location_assignment PIN_101 -to SRAMAD[11]
+set_location_assignment PIN_113 -to SRAMAD[10]
+set_location_assignment PIN_99 -to SRAMAD[9]
+set_location_assignment PIN_96 -to SRAMAD[8]
+set_location_assignment PIN_92 -to SRAMAD[7]
+set_location_assignment PIN_94 -to SRAMAD[6]
+set_location_assignment PIN_97 -to SRAMAD[5]
+#set_location_assignment PIN_100 -to SRAMAD[4]
+set_location_assignment PIN_134 -to SRAMAD[4]
+set_location_assignment PIN_103 -to SRAMAD[3]
+set_location_assignment PIN_112 -to SRAMAD[2]
+set_location_assignment PIN_114 -to SRAMAD[1]
+set_location_assignment PIN_118 -to SRAMAD[0]
+set_location_assignment PIN_119 -to SRAMIO[7]
+set_location_assignment PIN_121 -to SRAMIO[6]
+set_location_assignment PIN_125 -to SRAMIO[5]
+set_location_assignment PIN_129 -to SRAMIO[4]
+set_location_assignment PIN_132 -to SRAMIO[3]
+set_location_assignment PIN_126 -to SRAMIO[2]
+set_location_assignment PIN_122 -to SRAMIO[1]
+set_location_assignment PIN_120 -to SRAMIO[0]
+set_location_assignment PIN_115 -to SRAMCEn
+set_location_assignment PIN_74 -to SRAMCE2
+set_location_assignment PIN_87 -to SRAMWEn
+set_location_assignment PIN_104 -to SRAMOEn
+
+set_global_assignment -name ENABLE_SIGNALTAP ON
+set_global_assignment -name USE_SIGNALTAP_FILE output_files/Microcomputer.stp
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name VHDL_FILE ../Components/SDCARD/sd_controller.vhd
+set_global_assignment -name VERILOG_FILE Microcomputer.v
+set_global_assignment -name VHDL_FILE ../Components/RAM/InternalRam2K.vhd
+set_global_assignment -name VHDL_FILE ../ROMS/Z80/Z80_CPM_BASIC_ROM.vhd
+set_global_assignment -name VHDL_FILE ../Components/UART/aaron.vhd
+set_global_assignment -name VHDL_FILE ../Components/Z80/T80s.vhd
+set_global_assignment -name VHDL_FILE ../Components/Z80/T80_Reg.vhd
+set_global_assignment -name VHDL_FILE ../Components/Z80/T80_Pack.vhd
+set_global_assignment -name VHDL_FILE ../Components/Z80/T80_MCode.vhd
+set_global_assignment -name VHDL_FILE ../Components/Z80/T80_ALU.vhd
+set_global_assignment -name VHDL_FILE ../Components/Z80/T80.vhd
+set_global_assignment -name VHDL_FILE ../Components/UART/bufferedUART.vhd
+set_global_assignment -name SOURCE_FILE Microcomputer.qsf
+set_global_assignment -name QIP_FILE IP/clkgen.qip
+set_global_assignment -name QIP_FILE IP/BASROM.qip
+set_global_assignment -name CDF_FILE output_files/Microcomputer.cdf
+set_global_assignment -name SLD_FILE "C:/kitahard/EP2C5/cpm80/Microcomputer/output_files/Microcomputer_auto_stripped.stp"
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
